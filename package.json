@@ -1,0 +1,24 @@
+{
+  "name": "eslint-plugin-wtlin",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "Wei-Tang Lin <wtlin1228@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "babel --quiet --out-dir dist src",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "7.15.0",
+    "@babel/eslint-parser": "7.15.0",
+    "@babel/preset-env": "7.15.0",
+    "babel-cli": "6.26.0",
+    "babel-jest": "27.0.6",
+    "babel-plugin-module-resolver": "4.1.0",
+    "babel-preset-airbnb": "2.6.0",
+    "eslint": "7.32.0",
+    "jest": "27.0.6",
+    "rimraf": "3.0.2"
+  }
+}
