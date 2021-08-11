@@ -10,7 +10,7 @@
 
 function create(context) {
   // variables should be defined here
-  const [{ limit }] = context.options;
+  const { limit } = context.options[0] || { limit: 10 };
   let continuousImportDeclarations = 0;
   let lastEnd = 0;
 

@@ -6,8 +6,6 @@ Too many continuous import declarations may reduce the readability for readers.
 
 This rule aims to limit the number of continuous import declarations.
 
-**IMPORTANT** - You have to define the limit
-
 Examples of **incorrect** code for this rule:
 
 ```js
@@ -89,10 +87,12 @@ const foo5 = lazyLoad(() => import("foo"));
 
 ### Options
 
+The `limit` option accepts number and 10 is the default value.
+
 ```js
 {
     "rules": {
-        "limit-continuous-import-declarations": ["error", { "limit": 10 }]
+        "limit-continuous-import-declarations": ["error", { "limit": 5 }]
     }
 }
 ```

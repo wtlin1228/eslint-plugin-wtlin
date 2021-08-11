@@ -35,6 +35,9 @@ const generateErrorMessages = (n) =>
 ruleTester.run("continuous-import-declarations", rule, {
   valid: [
     {
+      code: generateNewLine() + generateImportDeclarations(10),
+    },
+    {
       code:
         generateNewLine() +
         generateImportDeclarations(3) +
@@ -54,6 +57,10 @@ ruleTester.run("continuous-import-declarations", rule, {
   ],
 
   invalid: [
+    {
+      code: generateNewLine() + generateImportDeclarations(11),
+      errors: generateErrorMessages(1),
+    },
     {
       code: generateNewLine() + generateImportDeclarations(6),
       options: [{ limit: 3 }],
