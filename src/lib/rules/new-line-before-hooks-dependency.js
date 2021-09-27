@@ -4,8 +4,7 @@
  */
 "use strict";
 
-// TODO: Try to use this helper. (It will break the unit-tests now)
-// import looksLike from "../utils/looksLike";
+import looksLike from "../utils/looksLike";
 
 //------------------------------------------------------------------------------
 // Rule Definition
@@ -22,7 +21,6 @@ function create(context) {
     return [argument.loc.start.line, argument.loc.end.line];
   }
 
-  // TODO: Try to use this helper. (It will break the unit-tests now)
   function isHookWithTwoArguments(node) {
     const hookNames = ["useEffect", "useCallback", "useMemo"];
     return looksLike(node, {
@@ -39,15 +37,7 @@ function create(context) {
 
   return {
     CallExpression(node) {
-      // TODO: Try to use this helper. (It will break the unit-tests now)
-      // if (!isHookWithTwoArguments(node)) {
-      //   return;
-      // }
-
-      if (
-        !["useEffect", "useCallback", "useMemo"].includes(node.callee.name) ||
-        node.arguments.length !== 2
-      ) {
+      if (!isHookWithTwoArguments(node)) {
         return;
       }
 
