@@ -15,24 +15,14 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("parameter-of-custom-apollo-hooks", rule, {
   valid: [
-    {
-      code: "useFooQuery()",
-    },
-    {
-      code: "useFooMutation()",
-    },
-    {
-      code: "useFooQuery({})",
-    },
-    {
-      code: "useFooMutation({})",
-    },
-    {
-      code: "useQuery({}, {}, {})",
-    },
-    {
-      code: "useMutation({}, {}, {})",
-    },
+    "useFooQuery()",
+    "useFooMutation()",
+    "useFooQuery({})",
+    "useFooMutation({})",
+    "useFooQuery(foo)",
+    "useFooMutation(foo)",
+    "useQuery({}, {}, {})",
+    "useMutation({}, {}, {})",
   ],
 
   invalid: [

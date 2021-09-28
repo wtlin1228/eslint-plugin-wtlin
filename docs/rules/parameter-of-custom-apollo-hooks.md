@@ -41,6 +41,13 @@ useFooMutation({});
 ```js
 /* eslint parameter-of-custom-apollo-hooks: ["error"] */
 
+useFooQuery(foo);
+useFooMutation(foo);
+```
+
+```js
+/* eslint parameter-of-custom-apollo-hooks: ["error"] */
+
 useQuery({}, {}, {});
 useMutation({}, {}, {});
 ```

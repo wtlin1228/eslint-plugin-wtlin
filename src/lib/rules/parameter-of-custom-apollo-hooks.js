@@ -36,13 +36,6 @@ function create(context) {
         return;
       }
 
-      if (node.arguments[0].type !== "ObjectExpression") {
-        context.report({
-          node: node.arguments[0],
-          message: "Custom apollo hooks can only be called with object",
-        });
-      }
-
       if (isLengthGreaterThanN(1)(node.arguments)) {
         node.arguments.slice(1).forEach((argNode) =>
           context.report({
@@ -50,6 +43,17 @@ function create(context) {
             message: "Custom apollo hooks can only have one argument",
           })
         );
+      }
+
+      if (node.arguments[0].type === "Identifier") {
+        return;
+      }
+
+      if (node.arguments[0].type !== "ObjectExpression") {
+        context.report({
+          node: node.arguments[0],
+          message: "Custom apollo hooks can only be called with object",
+        });
       }
     },
   };
