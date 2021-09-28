@@ -19,7 +19,7 @@ function create(context) {
 
   const isCustomApolloHook = (x) => /^use\w+(Query|Mutation)$/.test(x);
 
-  const isLengthGreatThanN = (n) => (xs) => xs.length > n;
+  const isLengthGreaterThanN = (n) => (xs) => xs.length > n;
 
   //----------------------------------------------------------------------
   // Public
@@ -30,7 +30,7 @@ function create(context) {
       if (
         !looksLike(node, {
           callee: { name: isCustomApolloHook },
-          arguments: isLengthGreatThanN(0),
+          arguments: isLengthGreaterThanN(0),
         })
       ) {
         return;
@@ -43,7 +43,7 @@ function create(context) {
         });
       }
 
-      if (isLengthGreatThanN(1)(node.arguments)) {
+      if (isLengthGreaterThanN(1)(node.arguments)) {
         node.arguments.slice(1).forEach((argNode) =>
           context.report({
             node: argNode,
