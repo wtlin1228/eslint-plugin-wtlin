@@ -17,18 +17,13 @@ function create(context) {
   // Helpers
   //----------------------------------------------------------------------
 
+  const isTargetHook = (x) =>
+    ["useEffect", "useCallback", "useMemo"].includes(x);
+
+  const isLengthTwo = (xs) => xs.length === 2;
+
   function getLinesForArgument(argument) {
     return [argument.loc.start.line, argument.loc.end.line];
-  }
-
-  function isHookWithTwoArguments(node) {
-    const hookNames = ["useEffect", "useCallback", "useMemo"];
-    return looksLike(node, {
-      callee: {
-        name: (x) => hookNames.includes(x),
-      },
-      arguments: (xs) => xs.length === 2,
-    });
   }
 
   //----------------------------------------------------------------------
@@ -37,7 +32,14 @@ function create(context) {
 
   return {
     CallExpression(node) {
-      if (!isHookWithTwoArguments(node)) {
+      if (
+        !looksLike(node, {
+          callee: {
+            name: isTargetHook,
+          },
+          arguments: isLengthTwo,
+        })
+      ) {
         return;
       }
 
