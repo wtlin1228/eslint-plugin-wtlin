@@ -21,7 +21,7 @@ jobs:
       - name: Build static assets
         run: yarn build
       - name: Install dependencies for semantic-release
-        run: yarn global add -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/github @semantic-release/changelog @semantic-release/npm @semantic-release/git
+        run: npm install -g semantic-release @semantic-release/commit-analyzer @semantic-release/release-notes-generator @semantic-release/github @semantic-release/changelog @semantic-release/npm @semantic-release/git
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.WTLIN_ACCESS_TOKEN }}
