@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/wtlin1228/eslint-plugin-wtlin/compare/v2.0.0...v2.1.0) (2021-10-04)
+
+
+### Features
+
+* **rules:** add custom-apollo-hooks-max-params rule ([2a66e69](https://github.com/wtlin1228/eslint-plugin-wtlin/commit/2a66e691c303c0caa9c92bce085ed8b00f3204b6))
+
 # [2.0.0](https://github.com/wtlin1228/eslint-plugin-wtlin/compare/v1.1.0...v2.0.0) (2021-10-04)
 
 
