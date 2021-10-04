@@ -8,7 +8,6 @@ module.exports = {
   rules: {
     "wtlin/custom-apollo-hooks-max-params": 2,
     "wtlin/limit-continuous-import-declarations": 2,
-    "wtlin/parameter-of-custom-apollo-hooks": 2,
     "wtlin/place-hooks-arguments-in-new-line": 2,
   },
 
