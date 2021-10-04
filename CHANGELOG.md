@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/wtlin1228/eslint-plugin-wtlin/compare/v1.1.0...v2.0.0) (2021-10-04)
+
+
+### Features
+
+* **rules:** rename new-line-before-hooks-dependency to place-hooks-arguments-in-new-line ([85f2a89](https://github.com/wtlin1228/eslint-plugin-wtlin/commit/85f2a897c833b0384e6ce750a3aa112c6f7c5957))
+
+
+### BREAKING CHANGES
+
+* **rules:** new-line-before-hooks-dependency is renamed to place-hooks-arguments-in-new-line
+
 # [1.1.0](https://github.com/wtlin1228/eslint-plugin-wtlin/compare/v1.0.0...v1.1.0) (2021-10-04)
 
 
