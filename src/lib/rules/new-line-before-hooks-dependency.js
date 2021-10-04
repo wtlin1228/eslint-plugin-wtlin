@@ -22,8 +22,8 @@ function create(context) {
 
   const isLengthTwo = (xs) => xs.length === 2;
 
-  function getLinesForArgument(argument) {
-    return [argument.loc.start.line, argument.loc.end.line];
+  function getLinesForNode(node) {
+    return [node.loc.start.line, node.loc.end.line];
   }
 
   //----------------------------------------------------------------------
@@ -44,13 +44,27 @@ function create(context) {
       }
 
       const [arg1, arg2] = node.arguments;
-      const [startOfFirstArg, endOfFirstArg] = getLinesForArgument(arg1);
-      const [startOfSecondArg, endOfSecondArg] = getLinesForArgument(arg2);
+      const [startOfCallExpression] = getLinesForNode(node);
+      const [startOfFirstArg, endOfFirstArg] = getLinesForNode(arg1);
+      const [startOfSecondArg, endOfSecondArg] = getLinesForNode(arg2);
 
-      const areArgumentsNotInTheSameLine = startOfFirstArg !== endOfSecondArg;
+      const isOneLineExpression =
+        startOfCallExpression === endOfFirstArg &&
+        startOfFirstArg === endOfSecondArg;
+      if (isOneLineExpression) {
+        return;
+      }
+
+      const isCreateFnNotInNewLine = startOfFirstArg === startOfCallExpression;
+      if (isCreateFnNotInNewLine) {
+        context.report({
+          node: arg1,
+          message: "This function should be in a new line",
+        });
+      }
+
       const isDependencyArrayNotInNewLine = endOfFirstArg === startOfSecondArg;
-
-      if (areArgumentsNotInTheSameLine && isDependencyArrayNotInNewLine) {
+      if (isDependencyArrayNotInNewLine) {
         context.report({
           node: arg2,
           message: "Dependency array should be in a new line",
