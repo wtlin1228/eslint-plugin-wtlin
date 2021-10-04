@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/wtlin1228/eslint-plugin-wtlin/compare/v2.1.0...v3.0.0) (2021-10-04)
+
+
+### Bug Fixes
+
+* **rules:** remove parameter-of-custom-apollo-hooks ([63c7560](https://github.com/wtlin1228/eslint-plugin-wtlin/commit/63c7560b503e17ff85bf145c474afdc2aec089c2))
+
+
+### BREAKING CHANGES
+
+* **rules:** parameter-of-custom-apollo-hooks rule has been removed. Use custom-apollo-hooks-max-params instead
+
 # [2.1.0](https://github.com/wtlin1228/eslint-plugin-wtlin/compare/v2.0.0...v2.1.0) (2021-10-04)
 
 
