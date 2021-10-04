@@ -4,6 +4,10 @@
   "main": "dist/index.js",
   "author": "Wei-Tang Lin <wtlin1228@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wtlin1228/eslint-plugin-wtlin.git"
+  },
   "scripts": {
     "prebuild": "rimraf build",
     "build": "BABEL_ENV=build babel --quiet --out-dir dist src",
