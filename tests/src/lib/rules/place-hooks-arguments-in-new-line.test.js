@@ -59,7 +59,7 @@ ruleTester.run("place-hooks-arguments-in-new-line", rule, {
           }, []
         )
       `,
-      errors: [{ message: "Dependency array should be in a new line" }],
+      errors: [{ message: "Place this argument in new line" }],
     },
     {
       code: `
@@ -68,8 +68,8 @@ ruleTester.run("place-hooks-arguments-in-new-line", rule, {
         }, [])
       `,
       errors: [
-        { message: "This function should be in a new line" },
-        { message: "Dependency array should be in a new line" },
+        { message: "Place this argument in new line" },
+        { message: "Place this argument in new line" },
       ],
     },
     {
@@ -80,8 +80,8 @@ ruleTester.run("place-hooks-arguments-in-new-line", rule, {
         )
       `,
       errors: [
-        { message: "This function should be in a new line" },
-        { message: "Dependency array should be in a new line" },
+        { message: "Place this argument in new line" },
+        { message: "Place this argument in new line" },
       ],
     },
     {
@@ -91,7 +91,7 @@ ruleTester.run("place-hooks-arguments-in-new-line", rule, {
         },
         [])
       `,
-      errors: [{ message: "This function should be in a new line" }],
+      errors: [{ message: "Place this argument in new line" }],
     },
   ],
 });
