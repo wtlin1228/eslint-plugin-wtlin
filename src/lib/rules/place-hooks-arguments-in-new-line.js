@@ -1,5 +1,5 @@
 /**
- * @fileoverview add a new line before hook's dependency array
+ * @fileoverview place hooks' arguments in new line
  * @author wtlin1228
  */
 "use strict";
@@ -59,7 +59,7 @@ function create(context) {
       if (isCreateFnNotInNewLine) {
         context.report({
           node: arg1,
-          message: "This function should be in a new line",
+          message: "Place this argument in new line",
         });
       }
 
@@ -67,7 +67,7 @@ function create(context) {
       if (isDependencyArrayNotInNewLine) {
         context.report({
           node: arg2,
-          message: "Dependency array should be in a new line",
+          message: "Place this argument in new line",
         });
       }
     },
@@ -79,7 +79,7 @@ module.exports = {
   meta: {
     type: null, // `problem`, `suggestion`, or `layout`
     docs: {
-      description: "add a new line for hook's dependency array",
+      description: "place hooks' arguments in new line",
       category: "Fill me in",
       recommended: false,
       url: null, // URL to the documentation page for this rule

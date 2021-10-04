@@ -1,6 +1,6 @@
 export const rules = {
   "limit-continuous-import-declarations": require("./lib/rules/limit-continuous-import-declarations"),
-  "new-line-before-hooks-dependency": require("./lib/rules/new-line-before-hooks-dependency"),
+  "place-hooks-arguments-in-new-line": require("./lib/rules/place-hooks-arguments-in-new-line"),
   "parameter-of-custom-apollo-hooks": require("./lib/rules/parameter-of-custom-apollo-hooks"),
 };
 

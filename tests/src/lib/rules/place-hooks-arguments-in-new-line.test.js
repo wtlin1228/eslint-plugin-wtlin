@@ -1,10 +1,10 @@
 /**
- * @fileoverview add a new line before hook's dependency array
+ * @fileoverview place hooks' arguments in new line
  * @author wtlin1228
  */
 
 import { RuleTester } from "eslint";
-import rule from "rules/new-line-before-hooks-dependency";
+import rule from "rules/place-hooks-arguments-in-new-line";
 
 const ruleTester = new RuleTester({
   parser: require.resolve("@babel/eslint-parser"),
@@ -13,7 +13,7 @@ const ruleTester = new RuleTester({
   },
 });
 
-ruleTester.run("new-line-before-hooks-dependency", rule, {
+ruleTester.run("place-hooks-arguments-in-new-line", rule, {
   valid: [
     `
       useEffect(
