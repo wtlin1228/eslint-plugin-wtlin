@@ -15,90 +15,83 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("new-line-before-hooks-dependency", rule, {
   valid: [
-    {
-      // prettier-ignore
-      code: [
-        '',
-        'useEffect(',
-        '  () => {' ,
-        '    // ...',
-        '  },',
-        '  []',
-        ')',
-      ].join("\n"),
-    },
-    {
-      code: "useMemo(() => {}, [])",
-    },
-    {
-      // prettier-ignore
-      code: [
-        '',
-        'useCallback(',
-        '  () => {',
-        '    // ...',
-        '  },',
-        '',
-        '  []',
-        ')',
-      ].join("\n"),
-    },
-    {
-      // prettier-ignore
-      code: [
-        '',
-        'useFoo(',
-        '  () => {',
-        '    // ...',
-        '  }, []',
-        ')',
-      ].join("\n"),
-    },
-    {
-      // prettier-ignore
-      code: [
-        '',
-        'useFoo(() => {',
-        '    // ...',
-        '  }, []',
-        ')',
-      ].join("\n"),
-    },
+    `
+      useEffect(
+        () => {
+          // ...
+        },
+        []
+      )
+    `,
+    `
+      useMemo(() => {}, [])
+    `,
+    `
+      useCallback(
+        () => {
+          // ...
+        },
+        
+        []
+      )
+    `,
+    `      
+      useFoo(
+        () => {
+          // ...
+        }, []
+      )
+    `,
+    `
+      useFoo(() => {
+          // ...
+        }, []
+      )
+    `,
   ],
 
   invalid: [
     {
-      // prettier-ignore
-      code: [
-        '',
-        'useEffect(',
-        '  () => {',
-        '    // ...',
-        '  }, []',
-        ')',
-      ].join("\n"),
+      code: `
+        useEffect(
+          () => {
+            // ...
+          }, []
+        )
+      `,
       errors: [{ message: "Dependency array should be in a new line" }],
     },
     {
-      // prettier-ignore
-      code: [
-        '',
-        'useCallback(() => {',
-        '  // ...',
-        '}, [])',
-      ].join("\n"),
-      errors: [{ message: "Dependency array should be in a new line" }],
+      code: `
+        useCallback(() => {
+          // ...
+        }, [])
+      `,
+      errors: [
+        { message: "This function should be in a new line" },
+        { message: "Dependency array should be in a new line" },
+      ],
     },
     {
-      // prettier-ignore
-      code: [
-        '',
-        'useMemo(() => {',
-        '    // ...',
-        '  },                 []',
-        ')',
-      ].join("\n"),
-      errors: [{ message: "Dependency array should be in a new line" }],
+      code: `
+        useMemo(() => {
+          // ...
+          },                 []
+        )
+      `,
+      errors: [
+        { message: "This function should be in a new line" },
+        { message: "Dependency array should be in a new line" },
+      ],
+    },
+    {
+      code: `
+        useEffect(() => {
+          // ...
+        },
+        [])
+      `,
+      errors: [{ message: "This function should be in a new line" }],
     },
   ],
 });
