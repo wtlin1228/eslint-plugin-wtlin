@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/wtlin1228/eslint-plugin-wtlin/compare/v1.0.0...v1.1.0) (2021-10-04)
+
+
+### Features
+
+* **new-line-before-hooks-dependency:** report when first arg is not in a new line ([42eee59](https://github.com/wtlin1228/eslint-plugin-wtlin/commit/42eee5991831f05c4e4f9b31e26c7ed0a039c2dd))
+
 # 1.0.0 (2021-10-04)
 
 
