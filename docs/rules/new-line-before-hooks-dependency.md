@@ -23,6 +23,17 @@ useEffect(
 ```js
 /* eslint new-line-before-hooks-dependency: ["error"] */
 
+useEffect(() => {
+    // ...
+  }, 
+  []
+);
+```
+
+<!-- prettier-ignore -->
+```js
+/* eslint new-line-before-hooks-dependency: ["error"] */
+
 useCallback(() => {
     // ...
 }, []);
