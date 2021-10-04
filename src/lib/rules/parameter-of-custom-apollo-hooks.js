@@ -45,11 +45,10 @@ function create(context) {
         );
       }
 
-      if (node.arguments[0].type === "Identifier") {
-        return;
-      }
-
-      if (node.arguments[0].type !== "ObjectExpression") {
+      if (
+        node.arguments[0].type !== "Identifier" &&
+        node.arguments[0].type !== "ObjectExpression"
+      ) {
         context.report({
           node: node.arguments[0],
           message: "Custom apollo hooks can only be called with object",
